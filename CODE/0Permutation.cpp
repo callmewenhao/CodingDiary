@@ -1,9 +1,12 @@
+/* 
+全排列——递归思路 
+*/
 #include <iostream>
 #include <string>
 #include <assert.h>
 using namespace std;
 
-/* 全排列——递归思路 */
+
 void Permutation(char* pStr, char* pBegin){
     assert(pStr && pBegin);  // 判断指针是否为空
     if(*pBegin == '\0'){

@@ -1,12 +1,12 @@
-#include <iostream>
-using namespace std;
-
-
 /* 
-string match: n match m
+字符串匹配
 返回开始的位置
 时间复杂度:n*m
 */
+#include <iostream>
+using namespace std;
+
+/* 暴力法 */
 char* StrStr(const char *str, const char *target){
     if(!*target)  // 异常处理
         return (char*)str;

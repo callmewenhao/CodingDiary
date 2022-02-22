@@ -1,10 +1,12 @@
-/* 将字符串映射为hash值 */
+/* 
+字符串匹配 
+*/
 #include <iostream>
 #include <string>
 #include <functional>
 using namespace std;
 
-
+/* 将字符串映射为hash值 */
 int RabinKrap(string s, string pattern){
     int sLen = s.length(), pLen = pattern.length();
     hash<string> myHash;  // 建立hash map
