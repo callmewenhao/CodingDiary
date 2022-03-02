@@ -1,4 +1,4 @@
-/* 使用两个stack，相互倾倒 */
+/* 使用两个stack，相互倾倒，均摊复杂度 */
 /* https://leetcode-cn.com/problems/implement-queue-using-stacks/ */
 class MyQueue {
 private:
