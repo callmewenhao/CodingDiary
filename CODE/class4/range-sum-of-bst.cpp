@@ -1,1 +1,37 @@
-https://leetcode-cn.com/problems/range-sum-of-bst/
+// https://leetcode-cn.com/problems/range-sum-of-bst/
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        int sum = 0;
+        if(root == nullptr) return 0;  // 递归停止的条件
+        // 三种情况的递归处理
+        if(low <= root->val && root->val <= high) {
+            sum += root->val;
+            sum += rangeSumBST(root->left, low, high);
+            sum += rangeSumBST(root->right, low, high);
+        } else if(root->val < low) {
+            sum += rangeSumBST(root->right, low, high);
+        } else if(root->val > high) {
+            sum += rangeSumBST(root->left, low, high);
+        }
+        return sum;
+    }
+};
+
+
+
+
+
+
+
