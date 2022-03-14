@@ -6,7 +6,7 @@ private:
     vector<bool> color;
     
 public:
-    // DFS方法
+    // BFS方法
     // 要注意本题针对无向无环图！
     bool isBipartite(vector<vector<int>>& graph) {
         int numNode = graph.size();
