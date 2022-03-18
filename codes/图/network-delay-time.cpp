@@ -16,7 +16,7 @@ class Solution {
 private:
     vector<int> dijkstra(int start, vector<vector<pair<int, int>>>& graph) {
         // 目标距离数组
-        vector<int> distTo = vector<int>(graph.size(), INT_MAX);
+        vector<int> distTo(graph.size(), INT_MAX);
         // 初始结点
         distTo[start] = 0;
         // 关键数据结构，升序优先队列
