@@ -4,13 +4,13 @@
 
 ## 图的抽象
 
-**「图」**这种数据结构的基本实现：图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
+「图」这种数据结构的基本实现：图中的节点一般就抽象成一个数字（索引），图的具体实现一般是「邻接矩阵」或者「邻接表」。
 
-<img src = "images\g0.jpg" height=200>
+<img src = "images/g0.jpg" height=200>
 
 比如上图这幅图用邻接表和邻接矩阵的存储方式如下：
 
-<img src = "images\g1.jpeg" height=200>
+<img src = "images/g1.jpeg" height=200>
 
 我们用**邻接表**表示图的场景更多，结合上图，一幅图可以用如下 Java 代码表示：
 
@@ -84,7 +84,7 @@ void levelTraverse(TreeNode root) {
 
 `while` 循环和 `for` 循环的配合正是这个遍历框架设计的巧妙之处：
 
-<img src="images\Dijkstra.jpeg" height=300>
+<img src="images/Dijkstra.jpeg" height=300>
 
 **`while` 循环控制一层一层往下走，`for` 循环利用 `sz` 变量控制从左到右遍历每一层二叉树节点**。
 
@@ -160,7 +160,7 @@ int BFS(Node start) {
 
 但是，到了「加权图」的场景，事情就没有这么简单了，因为你不能默认每条边的「权重」都是 1 了，这个权重可以是任意正数（Dijkstra 算法要求不能存在负权重边），比如下图的例子：
 
-<img src="images\Dijkstra1.jpeg" height=300>
+<img src="images/Dijkstra1.jpeg" height=300>
 
 如果沿用 BFS 算法中的 `step` 变量记录「步数」，显然红色路径一步就可以走到终点，但是这一步的权重很大；正确的最小权重路径应该是绿色的路径，虽然需要走很多步，但是路径权重依然很小。
 
@@ -210,7 +210,7 @@ class State {
 
 加权图中的 Dijkstra 算法和无权图中的普通 BFS 算法不同，在 Dijkstra 算法中，你第一次经过某个节点时的路径权重，不见得就是最小的，所以对于同一个节点，我们可能会经过多次，而且每次的 `distFromStart` 可能都不一样，比如下图：
 
-<img src="images\Dijkstra2.jpeg" height=300/>
+<img src="images/Dijkstra2.jpeg" height=300/>
 
 我会经过节点 `5` 三次，每次的 `distFromStart` 值都不一样，那我取 `distFromStart` 最小的那次，不就是从起点 `start` 到节点 `5` 的最短路径权重了么？
 
@@ -264,5 +264,5 @@ int[] dijkstra(int start, List<Integer>[] graph) {
 }
 ```
 
-> [C+ +模板代码](codes\图\network-delay-time.cpp)
+> [C+ +模板代码](codes/图/network-delay-time.cpp)
 
