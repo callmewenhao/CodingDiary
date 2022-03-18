@@ -6,7 +6,7 @@
 - [链表](2链表.md)🎉
 - [栈、队列](3栈和队列.md)🎈
 - [二叉树](4二叉树.md)💥
-- 图：这章主要借鉴自：[labuladong的图论笔记](https://labuladong.github.io/algo/2/20/)，东哥写的非常非常好！👍
+- 图：这章主要借鉴自[labuladong的图论笔记](https://labuladong.github.io/algo/2/20/)，东哥写得非常非常好！👍
   - [图&图遍历](6图（图遍历）.md)
   - [拓扑排序](6图（拓扑排序）.md)
   - [二分图](6图（二分图）.md)
