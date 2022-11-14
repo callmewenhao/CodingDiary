@@ -106,3 +106,30 @@ long long findGCD(long long a, long long b) {
 ```
 
 计算 LCM 可以使用两数乘积除以 GCD 进行计算，代码略
+
+#### 序列有序的最少交换次数——任意交换元素位置
+
+最少交换次数 = 元素个数 - 环的个数，下面代码出自：https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/
+
+```C++
+ans += n;
+std::vector<int> sort_plane{plane};
+// record the final idx for num
+std::unordered_map<int, int> map;
+// 灵神没有使用 map 而是对 sort_plane 使用二分搜索找新坐标
+sort(sort_plane.begin(), sort_plane.end());
+for (int i = 0; i < sort_plane.size(); ++i) 
+    map[sort_plane[i]] = i;
+// build a visited arr
+std::vector<bool> vis(n, false);
+for (int i = 0; i < n; ++i) {
+    if (vis[i]) continue;
+    int j = i;
+    while (!vis[j]) {
+        vis[j] = true;
+        j = map[plane[j]];
+    }
+    ans -= 1;
+}
+```
+
