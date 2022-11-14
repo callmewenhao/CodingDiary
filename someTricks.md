@@ -20,7 +20,7 @@ int reverseNum(int n) {
 }
 ```
 
-#### 去重容器 unordered_map
+#### 去重容器 unordered_set
 
 ```c++
 std::unordered_set<int> memo;
@@ -83,3 +83,26 @@ for (int i = 0; i < 10; ++i) {
 
 输出全部是：106110956， 是`10^9`级别的，满足算法题目中数据量的范围
 
+#### GCD & LCM
+
+C++ `<numeric>` 中有 `std::gcd()` 函数用于计算**最大公约数**，`std::lcm()` 计算**最小公倍数**；Python3 `math` 中也有 `gcd` 、`lcm` 函数
+
+计算 GCD 一种常见方法是欧几里得算法，即辗转相除法， 代码如下：
+
+> https://zhuanlan.zhihu.com/p/171623230
+>
+> 主要思想：gcd(a, b) = gcd(b, a mod b) (不妨设a>b 且r=a mod b ,r不为0)
+
+```c++
+// note: input parameters must be positive integer!
+long long findGCD(long long a, long long b) {
+    long long small_num = min(a, b);
+    long long big_num = max(a, b);
+    long long mod = big_num % small_num;
+    if (mod == 0) return small_num;
+    return findGCD(small_num, mod); 
+    // there is a recursive method, 'while' loop is another way!
+}
+```
+
+计算 LCM 可以使用两数乘积除以 GCD 进行计算，代码略
