@@ -1,5 +1,67 @@
 # Some Tricks
 
+#### Debug
+
+```C++
+template<class T>
+void Debug(initializer_list<T> infos) {
+    std::cout << "\nnew debug line:\n";
+    for (auto& it: infos) {
+        std::cout << it << " ";
+    }
+    std::cout << "\nend\n";
+}
+```
+
+#### C++ lambda 中进行递归
+
+C++ 无法像 python 一样在函数中定义普通函数，但可以使用 lambda 实现。有一个场景是在这个内部匿名函数中进行递归，但一般定义的 lambda 函数无法递归（即使你的捕获列表是`[&]`），如下：
+
+```C++
+auto dfs = [&](){ // intuition!
+	dfs(); // error: use of 'dfs' before deduction of 'auto'
+};
+```
+
+这是因为 `匿名`函数的匿名特性🤣，这个函数是没有名字的，无法捕获
+
+两种解决方案：
+
+1. `std::function`，这个写法比较 ugly，代码冗余！还有其他缺点😂以后再说
+
+```C++
+#include <functional>
+int main() {
+    std::function<void()> dfs = [&](){
+        dfs(); //OK
+    };
+    
+    std::function<int(int)> fibonacci = [&](int n) -> int {
+        if (n == 1 || n == 2) return 1;
+        return fibonacci(n - 1) + fibonacci(n  -2);
+    };
+
+    std::cout << fibonacci(10) << std::endl;
+}
+```
+
+2. Fixed-point combinator，力扣上给了一个解决方案：https://leetcode.cn/circle/discuss/nkNj76/，不太好懂🤣
+
+#### 遍历一棵树（双向、无环、连通）
+
+```C++
+// 用一个返回树枝节点个数的代码举例
+LL dfs(int node, int fa) { // node：要遍历的节点 fa：父节点
+    int size = 1;
+    for (auto sub_node: graph[node]) {
+        if (sub_node != fa) { // 这样就省去了 visited 数组
+            size += dfs(sub_city, city, seats);
+        }
+    }
+    return size;
+}
+```
+
 #### 反转数字
 
 ```c++
