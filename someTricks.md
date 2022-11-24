@@ -3,6 +3,7 @@
 #### Debug
 
 ```C++
+#include <initializer_list>
 template<class T>
 void Debug(initializer_list<T> infos) {
     std::cout << "\nnew debug line:\n";
