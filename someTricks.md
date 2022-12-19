@@ -1,5 +1,40 @@
 # Some Tricks
 
+#### 324周赛
+
+1. C++ 可以使用变量声明数组长度
+
+2. 计算前缀和：`std::partial_sum()`
+
+    ```C++
+    int n;
+    std::cin >> n;
+    int arr[n];
+    std::iota(arr, arr + n, 1);
+    std::vector<int> sum(n + 1, 0);
+    std::partial_sum(arr, arr + n, sum.begin() + 1);
+    ```
+
+3. 分解质因数
+
+    ```C++
+    int k = 2; // 从2开始除
+    std::vector<int> ans;
+    while (k <= n) {
+        if (n % k == 0) { // 如果k是n的因数
+            n /= k;
+            ans.push_back(k);
+        } else
+            k++; // 如果此时k不是n的因数，将k值加1
+    }
+    ```
+
+4. Least Common Ancestors: 最近公共祖先问题
+
+    
+
+
+
 #### 离线思维
 
 算法可以从这样的一个维度分成两类：在线算法和离线算法。
